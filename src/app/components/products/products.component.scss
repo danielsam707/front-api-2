@@ -9,11 +9,11 @@
   left: 50%;
   bottom: 0;
   right: 0;
-  background-color: white;
+  background: white;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  transition: all ease-out 0.5s;
+  transition: all ease-out;
   transform: translateX(100%);
   &.active {
     transform: translateX(0);
@@ -37,3 +37,4 @@
     grid-gap: 15px;
   }
 }
+
