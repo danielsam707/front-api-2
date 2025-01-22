@@ -22,6 +22,9 @@ export class ImgComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy
   // counter = 0;
   // counterFn: number | undefined;
 
+
+
+  //-----------------------------------------------------
   constructor() {
     // before render
     // NO async -- once time
@@ -59,7 +62,7 @@ export class ImgComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy
     console.log('ngOnDestroy');
     // window.clearInterval(this.counterFn);
   }
-
+  //---------------------------------------------------
   imgError() {
     this.img = this.imageDefault;
   }
