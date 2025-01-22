@@ -16,3 +16,9 @@ export interface Category {
 export interface CreateProductDTO extends Omit<Product, 'id' | 'category'> {
   categoryId: number;
 }
+
+// El partial le pone el ? a cada atributo
+// ej: id?: string;
+export interface updateProductDTO extends Partial<CreateProductDTO> {
+
+}

@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Product, CreateProductDTO } from '../../models/product.model';
+import { Product, CreateProductDTO, updateProductDTO } from '../../models/product.model';
 
 import { StoreService } from '../../services/store.service';
 import { ProductsService } from '../../services/products.service';
 import { tick } from '@angular/core/testing';
+//import { title } from 'process';
 
 @Component({
   selector: 'app-products',
@@ -17,6 +18,7 @@ export class ProductsComponent implements OnInit {
   total = 0;
   products: Product[] = [];
   showProductDetail = false;
+
   productChosen: Product = {
     id: '',
     price: 0,
@@ -72,5 +74,17 @@ export class ProductsComponent implements OnInit {
     .subscribe(data => {
     this.products.unshift(data);
     });
+  }
+
+  updateProduct() {
+    const changes: updateProductDTO = {
+      title: 'nuevo titulo',
+    }
+    const id = this.productChosen.id;
+    this.productsService.update(id, changes)
+    .subscribe(data => {
+      const productIndex = this.products.findIndex(item => item.id === this.productChosen.id)
+      this.products[productIndex] = data;
+    })
   }
 }
